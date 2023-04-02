@@ -15,7 +15,8 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "types": ["@types/web-bluetooth", "vue"],
-    "declarationMap": true
+    "declarationMap": true,
+    "resolveJsonModule": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]

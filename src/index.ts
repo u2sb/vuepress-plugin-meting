@@ -7,7 +7,7 @@ import type { MetingPluginsOptions } from "./options.js";
 
 const __dirname = getDirname(import.meta.url);
 
-export default (options: MetingPluginsOptions = {}): PluginObject => {
+const MetingPlugins = (options: MetingPluginsOptions = {}): PluginObject => {
   options = deepmerge(MetingPluginsOptionsDefault, options);
   return {
     name: "vuepress-plugin-meting",
@@ -20,9 +20,11 @@ export default (options: MetingPluginsOptions = {}): PluginObject => {
       if (app.options.bundler.name === "@vuepress/bundler-vite") {
         bundlerOptions.viteOptions ??= {};
         bundlerOptions.viteOptions.optimizeDeps = {
-          include: ["aplayer-ts/dist/APlayer.min.js", "hls.js/dist/hls.min.js"],
+          include: ["aplayer/dist/APlayer.min.js", "hls.js/dist/hls.min.js"],
         };
       }
     },
   };
 };
+
+export default MetingPlugins;

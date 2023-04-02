@@ -10,10 +10,12 @@ const inputDir = "./src";
 
 const { src, dest, series } = gulp;
 
-const version = execaCommandSync("git describe --tags", {
-  shell: true,
-  all: true,
-}).stdout;
+// const version = execaCommandSync("git describe --tags", {
+//   shell: true,
+//   all: true,
+// }).stdout;
+
+const version = "0.0.1";
 
 const tsc = () => {
   const tsProject = ts.createProject("tsconfig.json");
