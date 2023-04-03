@@ -19,9 +19,13 @@ const MetingPlugins = (options: MetingPluginsOptions = {}): Plugin => {
       // 修改 @vuepress/bundler-vite 的配置项
       if (app.options.bundler.name === "@vuepress/bundler-vite") {
         bundlerOptions.viteOptions ??= {};
-        bundlerOptions.viteOptions.optimizeDeps = {
-          include: ["aplayer/dist/APlayer.min.js", "hls.js/dist/hls.min.js"],
-        };
+        bundlerOptions.viteOptions.optimizeDeps ??= {};
+        bundlerOptions.viteOptions.optimizeDeps.include ??= [];
+        bundlerOptions.viteOptions.optimizeDeps.include = [
+          ...bundlerOptions.viteOptions.optimizeDeps.include,
+          "aplayer/dist/APlayer.min.js",
+          "hls.js/dist/hls.min.js",
+        ];
       }
     },
   };
