@@ -3,14 +3,25 @@ import type { APlayerOptions, Audio } from "aplayer";
 export interface APlayerComponentsOptions
   extends Omit<APlayerOptions, "container"> {}
 
+export interface MetingOptions {
+  id?: string;
+  server?: string;
+  type?: string;
+  auto?: string;
+  auth?: string;
+  api?: string;
+  list?: Array<Omit<MetingOptions, "list">>;
+}
+
 export interface MetingPluginsOptions {
-  aplayer?: APlayerComponentsOptions;
-  aplayerGlobal?: APlayerComponentsOptions;
-  aplayerGlobalMusic?: Array<Audio>;
+  aplayerOptions?: APlayerComponentsOptions;
+  aplayerGlobalOptions?: APlayerComponentsOptions;
+  metingOptions?: MetingOptions;
+  aplayerGlobalAudios?: Array<Audio>;
 }
 
 export const MetingPluginsOptionsDefault: MetingPluginsOptions = {
-  aplayer: {
+  aplayerOptions: {
     fixed: false,
     mini: false,
     autoplay: false,
@@ -25,7 +36,7 @@ export const MetingPluginsOptionsDefault: MetingPluginsOptions = {
     listMaxHeight: "340px",
     storageName: "@u2sb/vuepress-plugin-meting",
   },
-  aplayerGlobal: {
+  aplayerGlobalOptions: {
     fixed: true,
     mini: true,
     autoplay: false,
@@ -39,5 +50,11 @@ export const MetingPluginsOptionsDefault: MetingPluginsOptions = {
     listFolded: false,
     listMaxHeight: "540px",
     storageName: "@u2sb/vuepress-plugin-meting",
+  },
+  metingOptions: {
+    server: "netease",
+    type: "song",
+    auth: "auth",
+    api: "https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r",
   },
 };

@@ -2,12 +2,12 @@ import { getDirname, path } from "@vuepress/utils";
 import { deepmerge } from "deepmerge-ts";
 import { MetingPluginsOptionsDefault } from "./options.js";
 
-import type { App, PluginObject } from "@vuepress/core";
+import type { App, Plugin } from "@vuepress/core";
 import type { MetingPluginsOptions } from "./options.js";
 
 const __dirname = getDirname(import.meta.url);
 
-const MetingPlugins = (options: MetingPluginsOptions = {}): PluginObject => {
+const MetingPlugins = (options: MetingPluginsOptions = {}): Plugin => {
   options = deepmerge(MetingPluginsOptionsDefault, options);
   return {
     name: "vuepress-plugin-meting",

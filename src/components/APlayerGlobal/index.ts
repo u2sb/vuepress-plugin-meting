@@ -1,45 +1,37 @@
-import { defineComponent, h, onMounted, ref } from "vue";
+import { defineComponent, h } from "vue";
+import Meting from "../Meting/meting.js";
 
 import type { VNode } from "vue";
-import type { APlayerComponentsOptions } from "../../options.js";
-import type { APlayerOptions, Audio } from "aplayer";
+import type { APlayerComponentsOptions, MetingOptions } from "../../options.js";
+import type { Audio } from "aplayer";
 
 import {
-  aplayerGlobal as aplayerDefault,
-  aplayerGlobalMusic,
+  aplayerGlobalOptions,
+  aplayerGlobalAudios,
+  metingOptions,
   // @ts-ignore
 } from "@temp/MetingOptions.json";
 
-const APlayerDefault = aplayerDefault as APlayerComponentsOptions;
-const APlayerGlobalMusic = aplayerGlobalMusic as Array<Audio>;
+const APlayerGlobalOptionsDefault =
+  aplayerGlobalOptions as APlayerComponentsOptions;
+const APlayerGlobalAudios = aplayerGlobalAudios as Array<Audio>;
+const MetingOptionsDefault = metingOptions as MetingOptions;
 
 export default defineComponent({
   setup() {
-    const el = ref(HTMLDivElement);
-
-    if (APlayerGlobalMusic) {
-      const src: APlayerOptions = {
-        ...APlayerDefault,
-        audio: APlayerGlobalMusic,
-      };
-
-      onMounted(async () => {
-        Promise.all([
-          import(/* webpackChunkName: "aplayer" */ "aplayer"),
-          import(
-            /* webpackChunkName: "aplayer" */ "aplayer/dist/APlayer.min.css"
-          ),
-        ]).then(([{ default: APlayer }]) => {
-          //@ts-ignore
-          src.container = el.value;
-          new APlayer(src);
-        });
-      });
+    if (
+      (APlayerGlobalAudios && APlayerGlobalAudios.length > 0) ||
+      MetingOptionsDefault.id ||
+      (MetingOptionsDefault.list && MetingOptionsDefault.list.length > 0)
+    ) {
+      const src = {
+        ...MetingOptionsDefault,
+        ...APlayerGlobalOptionsDefault,
+        audio: APlayerGlobalAudios,
+      } as MetingOptions & APlayerComponentsOptions;
+      return (): VNode => h(Meting, { src });
+    } else {
+      return (): VNode => h("div");
     }
-
-    return (): VNode =>
-      h("div", {
-        ref: el,
-      });
   },
 });

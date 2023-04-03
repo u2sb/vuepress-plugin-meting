@@ -1,17 +1,45 @@
 import { PropType, defineComponent, h } from "vue";
-import APlayer from "./aplayer.js";
+import Meting from "./meting.js";
 
 import type { VNode } from "vue";
-import type { APlayerComponentsOptions } from "../../options.js";
+import type { APlayerComponentsOptions, MetingOptions } from "../../options.js";
 import type { APlayerOptions } from "aplayer";
 
 // @ts-ignore
-import { aplayerOptions } from "@temp/MetingOptions.json";
+import { aplayerOptions, metingOptions } from "@temp/MetingOptions.json";
 
 const APlayerOptionsDefault = aplayerOptions as APlayerComponentsOptions;
+const MetingOptionsDefault = metingOptions as MetingOptions;
 
 export default defineComponent({
   props: {
+    id: {
+      type: String,
+      default: "",
+    },
+    server: {
+      type: String,
+      default: MetingOptionsDefault.server,
+    },
+    type: {
+      type: String,
+      default: MetingOptionsDefault.type,
+    },
+    auto: {
+      type: String,
+      default: "",
+    },
+    auth: {
+      type: String,
+      default: MetingOptionsDefault.auth,
+    },
+    api: {
+      type: String,
+      default: MetingOptionsDefault.api,
+    },
+    list: {
+      type: Array,
+    },
     fixed: {
       type: Boolean,
       default: APlayerOptionsDefault.fixed,
@@ -53,7 +81,6 @@ export default defineComponent({
     },
     audio: {
       type: [Object, Array],
-      required: true,
     },
     storageName: { type: String, default: APlayerOptionsDefault.storageName },
     customAudioType: {
@@ -68,10 +95,9 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const src: APlayerComponentsOptions = {
-      ...props,
-    } as APlayerComponentsOptions;
+    const src: MetingOptions & APlayerOptions = { ...props } as MetingOptions &
+      APlayerComponentsOptions;
 
-    return (): VNode => h(APlayer, { src });
+    return (): VNode => h(Meting, { src });
   },
 });
