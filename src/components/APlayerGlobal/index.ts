@@ -10,7 +10,7 @@ import {
   aplayerGlobalAudios,
   metingOptions,
   // @ts-ignore
-} from "@temp/MetingOptions.json";
+} from "@temp/SbAudioOptions.json";
 
 const APlayerGlobalOptionsDefault =
   aplayerGlobalOptions as APlayerComponentsOptions;

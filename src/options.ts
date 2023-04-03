@@ -34,7 +34,7 @@ export const MetingPluginsOptionsDefault: MetingPluginsOptions = {
     lrcType: 3,
     listFolded: false,
     listMaxHeight: "340px",
-    storageName: "@u2sb/vuepress-plugin-meting",
+    storageName: "vuepress-plugin-sbaudio",
   },
   aplayerGlobalOptions: {
     fixed: true,
@@ -49,8 +49,9 @@ export const MetingPluginsOptionsDefault: MetingPluginsOptions = {
     lrcType: 3,
     listFolded: false,
     listMaxHeight: "540px",
-    storageName: "@u2sb/vuepress-plugin-meting",
+    storageName: "vuepress-plugin-sbaudio",
   },
+  aplayerGlobalAudios: [],
   metingOptions: {
     server: "netease",
     type: "song",

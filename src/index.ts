@@ -12,7 +12,7 @@ const MetingPlugins = (options: MetingPluginsOptions = {}): Plugin => {
   return {
     name: "vuepress-plugin-meting",
     async onPrepared(app: App) {
-      await app.writeTemp("MetingOptions.json", JSON.stringify(options));
+      await app.writeTemp("SbAudioOptions.json", JSON.stringify(options));
     },
     clientConfigFile: path.resolve(__dirname, "client.js"),
     extendsBundlerOptions: (bundlerOptions, app) => {

@@ -6,7 +6,7 @@ import type { APlayerComponentsOptions, MetingOptions } from "../../options.js";
 import type { APlayerOptions } from "aplayer/dist/APlayer.min.js";
 
 // @ts-ignore
-import { aplayerOptions, metingOptions } from "@temp/MetingOptions.json";
+import { aplayerOptions, metingOptions } from "@temp/SbAudioOptions.json";
 
 const APlayerOptionsDefault = aplayerOptions as APlayerComponentsOptions;
 const MetingOptionsDefault = metingOptions as MetingOptions;
