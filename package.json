@@ -1,16 +1,15 @@
 {
-  "name": "@u2sb/vuepress-plugin-meting",
+  "name": "vuepress-plugin-sbaudio",
   "version": "0.0.1",
   "description": "A music player plugin for vuepress use aplayer and meting",
   "type": "module",
   "main": "index.js",
-  "private": false,
   "scripts": {
     "build": "gulp build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/u2sb/vuepress-plugin-meting.git"
+    "url": "git+https://github.com/u2sb/vuepress-plugin-sbaudio.git"
   },
   "keywords": [
     "Vuepress",
@@ -23,9 +22,9 @@
   "author": "MonoLogueChi",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/u2sb/vuepress-plugin-meting/issues"
+    "url": "https://github.com/u2sb/vuepress-plugin-sbaudio/issues"
   },
-  "homepage": "https://github.com/u2sb/vuepress-plugin-meting",
+  "homepage": "https://github.com/u2sb/vuepress-plugin-sbaudio",
   "dependencies": {
     "aplayer": "^1.10.1",
     "deepmerge-ts": "^5.0.0",
