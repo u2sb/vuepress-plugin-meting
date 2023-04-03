@@ -21,7 +21,7 @@ export default defineComponent({
 
   setup(props) {
     const src: APlayerOptions = { ...props.src } as APlayerComponentsOptions;
-    const el = ref(HTMLDivElement);
+    const el = ref<HTMLDivElement>();
     let player: any;
 
     onMounted(async () => {
@@ -31,7 +31,6 @@ export default defineComponent({
           /* webpackChunkName: "aplayer" */ "aplayer/dist/APlayer.min.css"
         ),
       ]).then(([{ default: APlayer }]) => {
-        //@ts-ignore
         src.container = el.value;
         player = new APlayer(src);
       });
