@@ -9,7 +9,7 @@ import {
 
 import type { VNode } from "vue";
 import type { APlayerComponentsOptions } from "../../options.js";
-import type { APlayerOptions } from "aplayer";
+import type { APlayerOptions } from "aplayer/dist/APlayer.min.js";
 
 export default defineComponent({
   props: {
@@ -26,7 +26,7 @@ export default defineComponent({
 
     onMounted(async () => {
       Promise.all([
-        import(/* webpackChunkName: "aplayer" */ "aplayer"),
+        import(/* webpackChunkName: "aplayer" */ "aplayer/dist/APlayer.min.js"),
         import(
           /* webpackChunkName: "aplayer" */ "aplayer/dist/APlayer.min.css"
         ),

@@ -3,7 +3,7 @@ import Meting from "./meting.js";
 
 import type { VNode } from "vue";
 import type { APlayerComponentsOptions, MetingOptions } from "../../options.js";
-import type { APlayerOptions } from "aplayer";
+import type { APlayerOptions } from "aplayer/dist/APlayer.min.js";
 
 // @ts-ignore
 import { aplayerOptions, metingOptions } from "@temp/MetingOptions.json";

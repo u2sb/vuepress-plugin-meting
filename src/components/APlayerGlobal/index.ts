@@ -3,7 +3,7 @@ import Meting from "../Meting/meting.js";
 
 import type { VNode } from "vue";
 import type { APlayerComponentsOptions, MetingOptions } from "../../options.js";
-import type { Audio } from "aplayer";
+import type { Audio } from "aplayer/dist/APlayer.min.js";
 
 import {
   aplayerGlobalOptions,

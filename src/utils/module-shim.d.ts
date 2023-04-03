@@ -1,5 +1,5 @@
 declare module "aplayer/dist/APlayer.min.css";
-declare module "aplayer" {
+declare module "aplayer/dist/APlayer.min.js" {
   type FullScreenType = "web" | "browser";
 
   export class Audio {

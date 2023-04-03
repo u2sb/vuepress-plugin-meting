@@ -1,4 +1,4 @@
-import type { APlayerOptions, Audio } from "aplayer";
+import type { APlayerOptions, Audio } from "aplayer/dist/APlayer.min.js";
 
 export interface APlayerComponentsOptions
   extends Omit<APlayerOptions, "container"> {}

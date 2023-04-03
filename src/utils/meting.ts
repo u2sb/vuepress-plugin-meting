@@ -1,4 +1,4 @@
-import { Audio } from "aplayer";
+import { Audio } from "aplayer/dist/APlayer.min.js";
 import { MetingOptions, APlayerComponentsOptions } from "../options.js";
 
 export const GetAudioList = async (
