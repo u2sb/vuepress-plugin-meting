@@ -1,5 +1,5 @@
 import { PropType, defineComponent, h } from "vue";
-import APlayer from "./aplayer.js";
+import APlayer from "../Meting/meting.js";
 
 import type { VNode } from "vue";
 import type { APlayerComponentsOptions } from "../../options.js";
