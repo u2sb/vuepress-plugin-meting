@@ -1,5 +1,5 @@
 import gulp from "gulp";
-import rm from "rimraf";
+import { rimraf as rm } from "rimraf";
 import jeditor from "gulp-json-editor";
 import { resolve } from "path";
 import { execaCommandSync } from "execa";
@@ -9,6 +9,8 @@ const outputDir = "./dist";
 const inputDir = "./src";
 
 const { src, dest, series } = gulp;
+
+const assets = ["**/*.js", "**/*.vue", "**/*.css", "**/*.scss", "**/*.svg"];
 
 const version = execaCommandSync("git describe --tags", {
   shell: true,
@@ -20,10 +22,11 @@ const tsc = () => {
   return tsProject.src().pipe(tsProject()).pipe(dest(outputDir));
 };
 
-const cleanOut = (e) => rm(outputDir, e);
-const cpVue = () => src(resolve(inputDir, "**/*.vue")).pipe(dest(outputDir));
-const cpCss = () => src(resolve(inputDir, "**/*.css")).pipe(dest(outputDir));
-const cpJs = () => src(resolve(inputDir, "**/*.js")).pipe(dest(outputDir));
+const cleanOut = () => rm(outputDir);
+const cpAssets = () =>
+  Promise.all(
+    assets.map((e) => src(resolve(inputDir, e)).pipe(dest(outputDir)))
+  );
 
 const cpPackageJson = () => {
   return src("package.json")
@@ -37,4 +40,4 @@ const cpPackageJson = () => {
     .pipe(dest(outputDir));
 };
 
-export const build = series(cleanOut, tsc, cpVue, cpCss, cpJs, cpPackageJson);
+export const build = series(cleanOut, tsc, cpAssets, cpPackageJson);
