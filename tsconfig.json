@@ -11,12 +11,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Bundler",
     "outDir": "./dist",
     "rootDir": "./src",
     "types": ["@types/web-bluetooth", "vue"],
     "declarationMap": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
